@@ -10,6 +10,11 @@ const BlogModel = require('./models/BlogModel')
 const ServicesModel = require('./models/ServicesModel')
 const GalleryVideoModel = require('./models/GalleryVideoModel')
 const GalleryImageModel = require('./models/GalleryImageModel')
+const DoctorsModel = require('./models/DoctorsModel')
+const AppointmentModel = require('./models/Appointment')
+const HeroModel = require('./models/Hero')
+const ContactModel = require('./models/Contact')
+const ReportModel = require('./models/Reports')
 
 mongoose.set('strictQuery', false)
 
@@ -258,6 +263,224 @@ app.post('/delete-gallery-image', async (req, res)=> {
 // ========== XXXXXXx =========
 
 
+
+// -------------- Doctor's Model ------------
+
+app.get('/get-doctors', async (req, res)=> {
+     const check = await req.body
+ 
+    await DoctorsModel.find()
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
+ app.post('/add-doctor', async (req, res)=> {
+     const check = await req.body
+    await DoctorsModel.create(check)
+    .then(()=> {
+         res.send("data uploaded successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+ app.delete('/delete-doctor', async (req, res)=> {
+     const check = await req.body
+    await DoctorsModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+
+// =========== XXXXXX ==============
+
+
+
+// -------------- Appointment Model ------------
+
+app.get('/get-appointments', async (req, res)=> {
+     const check = await req.body
+ 
+    await AppointmentModel.find()
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
+ app.post('/add-appointment', async (req, res)=> {
+     const check = await req.body
+    await AppointmentModel.create(check)
+    .then(()=> {
+         res.send("data uploaded successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+ app.delete('/delete-appointment', async (req, res)=> {
+     const check = await req.body
+    await AppointmentModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+
+// =========== XXXXXX ==============
+
+
+// -------------- Hero Section Model ------------
+
+app.get('/get-hero', async (req, res)=> {
+     const check = await req.body
+ 
+    await HeroModel.find()
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
+ app.post('/add-hero', async (req, res)=> {
+     const check = await req.body
+    await HeroModel.create(check)
+    .then(()=> {
+         res.send("data uploaded successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+ app.delete('/delete-hero', async (req, res)=> {
+     const check = await req.body
+    await HeroModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+
+// =========== XXXXXX ==============
+
+
+
+
+// -------------- Contact Section Model ------------
+
+app.get('/get-contacts', async (req, res)=> {
+     const check = await req.body
+ 
+    await ContactModel.find()
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
+ app.post('/add-contact', async (req, res)=> {
+     const check = await req.body
+    await ContactModel.create(check)
+    .then(()=> {
+         res.send("data uploaded successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+ app.delete('/delete-contact', async (req, res)=> {
+     const check = await req.body
+    await ContactModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+
+// =========== XXXXXX ==============
+
+
+
+// -------------- Report Section Model ------------
+
+app.get('/get-reports', async (req, res)=> {
+     const check = await req.body
+ 
+    await ReportModel.find()
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
+ app.post('/add-report', async (req, res)=> {
+     const check = await req.body
+    await ReportModel.create(check)
+    .then(()=> {
+         res.send("data uploaded successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+ app.delete('/delete-report', async (req, res)=> {
+     const check = await req.body
+    await ReportModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+ 
+ })
+
+
+// =========== XXXXXX ==============
 
 
 app.listen(PORT, ()=> {
