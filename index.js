@@ -187,6 +187,17 @@ app.post('/adding-service', async (req, res)=> {
 
 })
 
+app.post('/delete-service', async (req, res)=> {
+     const check = await req.body
+    await ServicesModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+})
+
 // ================XXXXXXX===========
 
 
