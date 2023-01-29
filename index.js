@@ -151,6 +151,18 @@ app.get('/get-blog', async (req, res)=> {
 
 })
 
+
+app.delete('/delete-blog', async (req, res)=> {
+     const check = await req.body
+    await BlogModel.deleteOne(check)
+    .then(()=> {
+         res.send("data deleted successfully")
+    })
+    .catch((err)=> {
+         res.send(`This is the error : ${err.message}`)
+    })
+})
+
 app.post('/blogElement', async (req, res)=> {
     const {title} = req.body
     const blogTitle = await BlogModel.findOne({title})
@@ -187,7 +199,7 @@ app.post('/adding-service', async (req, res)=> {
 
 })
 
-app.post('/delete-service', async (req, res)=> {
+app.delete('/delete-service', async (req, res)=> {
      const check = await req.body
     await ServicesModel.deleteOne(check)
     .then(()=> {
