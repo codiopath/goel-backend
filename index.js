@@ -152,9 +152,9 @@ app.get('/get-blog', async (req, res)=> {
 })
 
 
-app.delete('/delete-blog', async (req, res)=> {
-     const check = await req.body
-    await BlogModel.deleteOne(check)
+app.post('/delete-blog', async (req, res)=> {
+     const {id} = await req.body
+    await BlogModel.deleteOne({_id:id})
     .then(()=> {
          res.send("data deleted successfully")
     })
