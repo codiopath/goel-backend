@@ -199,7 +199,7 @@ app.post('/adding-service', async (req, res)=> {
 
 })
 
-app.delete('/delete-service', async (req, res)=> {
+app.post('/delete-service', async (req, res)=> {
      const check = await req.body
     await ServicesModel.deleteOne(check)
     .then(()=> {
@@ -314,7 +314,7 @@ app.get('/get-doctors', async (req, res)=> {
  
  })
 
- app.delete('/delete-doctor', async (req, res)=> {
+ app.post('/delete-doctor', async (req, res)=> {
      const check = await req.body
     await DoctorsModel.deleteOne(check)
     .then(()=> {
@@ -358,7 +358,7 @@ app.get('/get-appointments', async (req, res)=> {
  
  })
 
- app.delete('/delete-appointment', async (req, res)=> {
+ app.post('/delete-appointment', async (req, res)=> {
      const check = await req.body
     await AppointmentModel.deleteOne(check)
     .then(()=> {
@@ -401,7 +401,7 @@ app.get('/get-hero', async (req, res)=> {
  
  })
 
- app.delete('/delete-hero', async (req, res)=> {
+ app.post('/delete-hero', async (req, res)=> {
      const check = await req.body
     await HeroModel.deleteOne(check)
     .then(()=> {
@@ -446,7 +446,7 @@ app.get('/get-contacts', async (req, res)=> {
  
  })
 
- app.delete('/delete-contact', async (req, res)=> {
+ app.post('/delete-contact', async (req, res)=> {
      const check = await req.body
     await ContactModel.deleteOne(check)
     .then(()=> {
@@ -490,7 +490,7 @@ app.get('/get-reports', async (req, res)=> {
  
  })
 
- app.delete('/delete-report', async (req, res)=> {
+ app.post('/delete-report', async (req, res)=> {
      const check = await req.body
     await ReportModel.deleteOne(check)
     .then(()=> {
