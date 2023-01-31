@@ -491,7 +491,7 @@ app.get('/get-reports', async (req, res)=> {
  
  })
 
-app.get('/get-one-report', async (req, res)=> {
+app.post('/get-one-report', async (req, res)=> {
      const check = await req.body
  
     await ReportModel.findOne(check)
