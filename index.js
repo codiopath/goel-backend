@@ -187,6 +187,19 @@ app.get('/get-services', async (req, res)=> {
 
 })
 
+app.get('/get-one-service/:id', async (req, res)=> {
+     const {id} = await req.params
+     console.log(id)
+    await ServicesModel.findById(id)
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
 app.post('/adding-service', async (req, res)=> {
     const check = await req.body
    await ServicesModel.create(check)
@@ -469,6 +482,19 @@ app.get('/get-reports', async (req, res)=> {
      const check = await req.body
  
     await ReportModel.find()
+    .then((obj)=> {
+     res.json(obj)
+    })
+    .catch((err)=> {
+     res.send(`This is the error : ${err}`)
+    })
+ 
+ })
+
+app.get('/get-one-report', async (req, res)=> {
+     const check = await req.body
+ 
+    await ReportModel.findOne(check)
     .then((obj)=> {
      res.json(obj)
     })
